@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-## usersテーブル
+## userテーブル
 | column               | type   | options                   |
 |:--------------------:|:------:|:-------------------------:|
 | nickname             | string | null: false               |
@@ -32,7 +32,7 @@ Things you may want to cover:
 - has_many :rooms
 - has_many :events
 
-## roomsテーブル
+## roomテーブル
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
 | name                 | string     | null: false                    |
@@ -44,7 +44,7 @@ Things you may want to cover:
 - has_many :events
 
 
-## room_usersテーブル
+## room_userテーブル
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
 | user                 | references | null: false, foreign_key: true |
@@ -55,7 +55,7 @@ Things you may want to cover:
 - belongs_to :room
 
 
-## eventsテーブル
+## eventテーブル
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
 | title                | string     | null: false                    |
