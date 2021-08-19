@@ -36,7 +36,7 @@ Things you may want to cover:
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
 | name                 | string     | null: false                    |
-| encrypted_password   | string     | null: false                    |
+| password_digest      | string     | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
 ###Asociation
