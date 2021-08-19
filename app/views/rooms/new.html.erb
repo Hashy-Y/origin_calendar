@@ -3,19 +3,18 @@
   <%=form_with model: @room, local: true do |f|%>
     <div class='room-form__field'>
       <div class='room-form__field--left'>
-        <%= f.label :ルーム名, class: 'room-form__label'%>
+        <%= f.label :name, class: 'room-form__label'%>
       </div>
       <div class='room-form__field--right'>
-        <%= f.text_field :name, class: 'chat__room_name room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+        <%= f.text_field :name, class: 'chat__room_name room-form__input', placeholder: 'ルーム名を入力してください'%>
       </div>
-    </div>
-    <div class='room-form__field'>
     </div>
     <div class='room-form__field'>
       <div class='room-form__field--left'>
-        <label class='room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+        <%= f.label :password, class: 'room-form__label'%>
       </div>
       <div class='room-form__field--right'>
+        <%= f.text_field :password, class: 'chat__room_name room-form__input', placeholder: 'パスワードを入力してください'%>
       </div>
     </div>
     <div class='room-form__field'>
