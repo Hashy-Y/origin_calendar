@@ -59,7 +59,7 @@ Things you may want to cover:
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
 | title                | string     | null: false                    |
-| description          | text       | null: false                    |
+| content              | text       | null: false                    |
 | start_date           | datetime   | null: false                    |
 | end_date             | datetime   | null: false                    |
 | user                 | references | null: false, foreign_key: true |
