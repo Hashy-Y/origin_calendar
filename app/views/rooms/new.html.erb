@@ -3,7 +3,7 @@
   <%=form_with model: @room, local: true do |f|%>
     <div class='room-form__field'>
       <div class='room-form__field--left'>
-        <%= f.label :name, class: 'room-form__label'%>
+        <%= f.label :ルームの名前, class: 'room-form__label'%>
       </div>
       <div class='room-form__field--right'>
         <%= f.text_field :name, class: 'chat__room_name room-form__input', placeholder: 'ルーム名を入力してください'%>
@@ -11,12 +11,37 @@
     </div>
     <div class='room-form__field'>
       <div class='room-form__field--left'>
-        <%= f.label :password, class: 'room-form__label'%>
+        <%= f.label :パスワード, class: 'room-form__label'%>
       </div>
       <div class='room-form__field--right'>
         <%= f.text_field :password, class: 'chat__room_name room-form__input', placeholder: 'パスワードを入力してください'%>
       </div>
     </div>
+    <div class='room-form__field'>
+      <div class='room-form__field--left'>
+        <label class='room-form__label' for='room_メンバー'>メンバー</label>
+      </div>
+      <div class='room-form__field--right'>
+        <select name="room[user_ids][]">
+          <option value="">ユーザーを選択してください</option>
+          <% User.where.not(id: current_user.id).each do |user| %>
+            <option value=<%=user.id%>><%= user.nickname %></option>
+          <% end %>
+        </select>
+        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+      </div>
+    </div>
+    <!--<div class='room-form__field'>
+      <div class='room-form__field--left'>
+        <label class='room-form__label' for='room_メンバー'>メンバー</label>
+      </div>
+      <div class='room-form__field--right'>
+        <%= f.collection_check_boxes(:user_ids, User.all, :id, :nickname) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
+        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+      </div>
+    </div>-->
     <div class='room-form__field'>
       <div class='room-form__field--left'></div>
       <div class='room-form__field--right'>
