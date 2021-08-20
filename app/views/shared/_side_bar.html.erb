@@ -3,27 +3,15 @@
     <%= link_to current_user.nickname, edit_user_registration_path %>
   </div>
   <div class="create-room">
-    <a href="#">ルームを作成する</a>
+    <%= link_to "新規ルーム作成", new_room_path %>
   </div>
 </div>
 
 <div class="rooms">
-  <div class="room">
-    <div class="room-name">
-      <a href="#">room1</a>
-    </div>
-  </div>
-  <div class="room">
-    <div class="room-name">
-      <a href="#">room2</a>
-    </div>
-  </div>
-</div>
-<div class="rooms">
   <% current_user.rooms.each do |room| %>
     <div class="room">
       <div class="room-name">
-        <%= link_to room.name, #room_events_path(room) %>
+        <%= link_to room.name,"#" %>
       </div>
     </div>
   <% end %>
