@@ -60,7 +60,7 @@ Things you may want to cover:
 |:--------------------:|:----------:|:------------------------------:|
 | title                | string     | null: false                    |
 | content              | text       | null: false                    |
-| start_date           | datetime   | null: false                    |
+| start_time           | datetime   | null: false                    |
 | end_date             | datetime   | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 | room                 | references | null: false, foreign_key: true |
