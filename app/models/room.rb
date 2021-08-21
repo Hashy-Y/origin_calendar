@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   #validates :password, presence: true
   
   has_secure_password
+  has_many :events
 
   #has_many :room_users
   #has_many :users, through: :room_users
