@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @event.content %>
+</p>
+
+<%= link_to 'Edit', edit_room_event_path(@event.room_id) %>
+<%= link_to 'Destroy',room_event_path(@event.room_id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', room_events_path %>

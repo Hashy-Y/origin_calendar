@@ -1,18 +1,28 @@
 <div class="main-header">
   <div class="left-header">
     <div class="header-title">
-      room-name
+      <%= @room.name %>
     </div>
   </div>
   <div class="right-header">
     <div class="header-button">
-      <a href="#">退出する</a>
+      <%= link_to '退出', root_path %>
     </div>
   </div>
 </div>
 
 <div class="events">
-  <div id='calendar'></div>
+  <%= link_to '新規予定登録', new_room_event_path %>
+
+  <%= month_calendar events: @events do |date,events| %>
+    <%= date.day %>
+
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event.title, room_event_path(@room, event) %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 <%#<div class="form">
