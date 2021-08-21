@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "shared/side_bar" %>
+  </div>
+  <div class='room-detail'>
+    <h1>ルーム詳細</h1>
+    <div class='room-detail_field'>
+      <div class='room-detail_field--up'>
+        <div class='room-detail__label'>
+          <%= 'Room Name'%>
+        </div>
+        <div class='room-detail__field--down'>
+          <%= @room.name %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

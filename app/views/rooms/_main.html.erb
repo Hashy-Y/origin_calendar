@@ -19,7 +19,7 @@
   <% @rooms.each do |room| %>
     <div class="main-room">
       <div class="main-room-name">
-        <%= link_to room.name, room_events_path(room) %>
+        <%= link_to room.name, room_path(room) %>
       </div>
     </div>
   <% end %>
