@@ -1,6 +1,10 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <%= link_to current_user.nickname, edit_user_registration_path %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.nickname, edit_user_registration_path %>
+    <% else %>
+      <div>ゲスト</div>
+    <% end%>
   </div>
   <div class="create-room">
     <%= link_to "新規ルーム作成", new_room_path %>
@@ -8,11 +12,15 @@
 </div>
 
 <div class="rooms">
-  <% current_user.rooms.each do |room| %>
-    <div class="room">
-      <div class="room-name">
-        <%= link_to room.name, room_events_path(room) %>
+  <% if user_signed_in? %>
+    <% current_user.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <%= link_to room.name, room_events_path(room) %>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <div></div>
   <% end %>
 </div>
