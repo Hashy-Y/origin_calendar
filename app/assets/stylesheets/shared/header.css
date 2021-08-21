@@ -4,7 +4,7 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 2vh 10vw;
   display: flex;
   flex-direction: column;
 }
@@ -16,8 +16,10 @@
 }
 
 .page-icon {
-  width: 10vw;
+  width: 40vw;
   margin-right: 10vw;
+  text-decoration: none;
+  font-size: 20px;
 }
 .nav {
   font-size: 18px;
@@ -32,17 +34,6 @@
   display: flex;
   min-width: 200px;
 
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
 }
 
 .lists-right {

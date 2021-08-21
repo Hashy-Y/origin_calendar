@@ -1,0 +1,26 @@
+<div class="main-header">
+  <div class="left-header">
+    <div class="header-title">
+      みんなのルーム一覧
+    </div>
+  </div>
+</div>
+<div class="form">
+  <div class="form-input">
+    <input class="form-message" placeholder= "type a message">
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <input type="file" class="hidden">
+    </label>
+  </div>
+  <input class="form-submit" type="submit" value="送信">
+</div>
+<div class="main-rooms">
+  <% @rooms.each do |room| %>
+    <div class="main-room">
+      <div class="main-room-name">
+        <%= link_to room.name, room_events_path(room) %>
+      </div>
+    </div>
+  <% end %>
+</div>

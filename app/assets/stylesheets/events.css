@@ -2,32 +2,33 @@
   display: flex;
 }
 .side-bar {
-  background-color: #253141;
+  background-color: #eb8511;
   width: 300px;
   height: 100vh;
 }
 .side-bar-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #253141;
+  background-color: #eb8511;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .header-name a{
   font-size: 16px;
-  color: #FAFAFA;
+  color: #000000;
   text-decoration: none;
 }
 .create-room a {
   font-size: 10px;
   border: 1px solid lightblue;
+  border-radius: 20px / 20px;
   padding: 14px;
-  color: deepskyblue;
+  color: deepskyblue#000000;
   text-decoration: none;
 }
 .rooms {
-  background-color: #2F3E51;
+  background-color: #eef06f;
   height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
@@ -37,7 +38,19 @@
 }
 .room-name a {
   text-decoration: none;
-  color: white;
+  color: rgb(0, 0, 0);
+}
+.main-rooms{
+  background-color: #FAFAFA;
+  height: calc(100vh - 100px - 90px);
+  padding: 46px 40px 0;
+  overflow: scroll;
+}
+.main-room-name a{
+  color: #000000;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
 }
 .main-side {
   background-color: #FFFFFF;
@@ -60,6 +73,7 @@
 .header-button a {
   text-decoration: none;
   border: 1px solid darkred;
+  border-radius: 20px / 20px;
   color: darkred;
   padding: 20px;
 }
