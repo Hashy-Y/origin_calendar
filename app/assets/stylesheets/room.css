@@ -52,6 +52,23 @@ li {
   border: 1px solid darkred;
   border-radius: 5px / 5px;
 }
+.room-btn{
+  display: flex;
+  margin: 20px auto;
+
+}
+.room-edit-btn, .room-destroy-btn{
+  margin-right: 10px;
+  height: 40px;
+  width: 80px;
+  border: 1px solid darkred;
+  border-radius: 5px / 5px;
+  text-decoration: none;
+  text-align: center;
+  text-justify: auto;
+}
+
+
 .room-form {
   width: 980px;
   margin: 60px auto;

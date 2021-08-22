@@ -14,6 +14,14 @@
           <%= @room.name %>
         </div>
       </div>
+      <div class='room-btn'>
+        <% if user_signed_in? %>
+          <%= link_to 'Edit', edit_room_path , class: "room-edit-btn" %>
+          <%= link_to 'Destroy',room_path, method: :delete, data: { confirm: 'Are you sure?' },class:"room-destroy-btn" %>
+        <% end %>
     </div>
+    </div>
+    
   </div>
+
 </div>
