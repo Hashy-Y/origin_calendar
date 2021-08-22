@@ -51,6 +51,16 @@ li {
   background-color: lightyellow;
   border: 1px solid darkred;
   border-radius: 5px / 5px;
+  display: inline-block;
+}
+.room-detail__area{
+  width: 300px;
+  height: 120px;
+  padding-left: 5px;
+  background-color: lightyellow;
+  border: 1px solid darkred;
+  border-radius: 5px / 5px;
+  display: inline-block;
 }
 .room-btn{
   display: flex;
@@ -97,6 +107,7 @@ li {
   line-height: 30px;
   padding: 10px 15px;
   box-sizing: border-box;
+  /*background-color: #fff;*/
 }
 .room-form__action-btn {
   display: inline-block;
@@ -123,6 +134,60 @@ li {
 .room-form__field--right {
   float: right;
   width: 70%;
+}
+.form-image{
+  font-size: 12px;
+  background-color: #ebde94;
+  color: #000;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.hidden{
+  display: none;
+}
+
+.room-image{
+  width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.room-lists {
+  width: calc(100vw - 300px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.room-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+.main-room-img {
+  position: relative;
+}
+.room-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.main-room-name{
+  text-align: center;
+}
+textarea {
+  margin: auto;
+  width: 400px;
+  height: 150px;
+  background-color: #fff;
+  color: #000;
+  border: solid 1px rgb(150, 150, 150);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 select {

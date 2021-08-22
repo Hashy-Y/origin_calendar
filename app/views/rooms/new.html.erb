@@ -8,10 +8,21 @@
     <%=form_with model: @room, local: true do |f|%>
       <div class='room-form__field'>
         <div class='room-form__field--left'>
+          <%= f.label :アイコン選択, class: 'room-form__label'%>
+        </div>
+        <div class='room-form__field--right'>
+          <label class="form-image">
+            <span class="image-file">画像</span>
+            <%= f.file_field :image, class: 'hidden' %>
+          </label>
+        </div>
+      </div>
+      <div class='room-form__field'>
+        <div class='room-form__field--left'>
           <%= f.label :ルームの名前, class: 'room-form__label'%>
         </div>
         <div class='room-form__field--right'>
-          <%= f.text_field :name, class: 'chat__room_name room-form__input', placeholder: 'ルーム名を入力してください'%>
+          <%= f.text_field :name, class: 'room-form__input', placeholder: 'ルーム名を入力してください'%>
         </div>
       </div>
       <div class='room-form__field'>
@@ -19,14 +30,24 @@
           <%= f.label :パスワード, class: 'room-form__label'%>
         </div>
         <div class='room-form__field--right'>
-          <%= f.text_field :password, class: 'chat__room_name room-form__input', placeholder: 'パスワードを入力してください'%>
+          <%= f.text_field :password, class: 'room-form__input', placeholder: 'パスワードを入力してください'%>
         </div>
       </div>
+      <div class='room-form__field'>
+        <div class='room-form__field--left'>
+          <%= f.label :ルーム詳細, class: 'room-form__label'%>
+        </div>
+        <div class='room-form__field--right'>
+          <%= f.text_area :description, class: 'room-form__input', placeholder: 'ルームの詳細情報を入力してください'%>
+        </div>
+      </div>
+      
       <div class='room-form__field'>
         <div class='room-form__field--left'>
           <label class='room-form__label' for='room_メンバー'></label>
         </div>
         <div class='room-form__field--right'>
+          <%= image_tag @room.image, class: 'room-image' if @room.image.attached? %>
           <!--<select name="room[user_ids][]">
             <option value="">ユーザーを選択してください</option>
             <% User.where.not(id: current_user.id).each do |user| %>

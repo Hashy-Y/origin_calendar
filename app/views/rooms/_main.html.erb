@@ -13,12 +13,17 @@
     </div>
   </div>
 </div>
-<div class="main-rooms">
+<ul class="room-lists">
   <% @rooms.each do |room| %>
-    <div class="main-room">
-      <div class="main-room-name">
-        <%= link_to room.name, room_path(room) %>
+    <li class='list'>
+      <div class="main-room">
+        <div class='main-room-img'>
+          <%= image_tag room.image, class: 'room-img' if room.image.attached? %>
+        </div>
+        <div class="main-room-name">
+          <%= link_to room.name, room_path(room) %>
+        </div>
       </div>
-    </div>
+    </li>
   <% end %>
-</div>
+</ul>

@@ -6,14 +6,22 @@
   <div class='room-detail'>
     <h1>ルーム詳細</h1>
     <div class='room-detail_field'>
+      <%= image_tag @room.image, class: 'room-image' if @room.image.attached? %>
       <div class='room-detail_field--up'>
         <div class='room-detail__label'>
           <%= 'Room Name'%>
         </div>
-        <div class='room-detail__field--down'>
-          <%= @room.name %>
-        </div>
+      <div class='room-detail__field--down'>
+        <%= @room.name %>
       </div>
+      <div class='room-detail_field--up'>
+        <div class='room-detail__label'>
+          <%= 'Room Description'%>
+        </div>
+      <div class='room-detail__area'>
+        <%= @room.description %>
+      </div>
+    </div>
       <div class='room-btn'>
         <% if user_signed_in? && current_user.id == @room.user_id%>
           <%= link_to 'Edit', edit_room_path , class: "room-edit-btn" %>
