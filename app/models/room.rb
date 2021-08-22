@@ -4,6 +4,7 @@ class Room < ApplicationRecord
   
   has_secure_password
   has_many :events, dependent: :destroy
+  belongs_to :user
 
   #has_many :room_users
   #has_many :users, through: :room_users

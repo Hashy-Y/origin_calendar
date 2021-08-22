@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:name,:password, user_ids: [] )
+    params.require(:room).permit(:name,:password, user_ids: [] ).merge(user_id: current_user.id)
   end
 
   def move_to_index

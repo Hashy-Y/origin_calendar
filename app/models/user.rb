@@ -13,5 +13,6 @@ class User < ApplicationRecord
 
   has_many :room_users
   has_many :rooms, through: :room_users
+  has_many :owned_groups, class_name: "Group"
   has_many :events
 end
