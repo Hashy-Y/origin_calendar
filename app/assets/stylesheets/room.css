@@ -157,10 +157,12 @@ li {
 }
 .room-lists {
   width: calc(100vw - 300px);
+  height: calc(100vh - 100px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+  overflow: scroll;
 }
 .room-lists>.list {
   width: 37vh;

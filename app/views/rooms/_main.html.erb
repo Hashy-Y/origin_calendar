@@ -13,17 +13,19 @@
     </div>
   </div>
 </div>
-<ul class="room-lists">
-  <% @rooms.each do |room| %>
-    <li class='list'>
-      <div class="main-room">
-        <div class='main-room-img'>
-          <%= image_tag room.image, class: 'room-img' if room.image.attached? %>
+<div class='rooms-list'>
+  <ul class="room-lists">
+    <% @rooms.each do |room| %>
+      <li class='list'>
+        <div class="main-room">
+          <div class='main-room-img'>
+            <%= image_tag room.image, class: 'room-img' if room.image.attached? %>
+          </div>
+          <div class="main-room-name">
+            <%= link_to room.name, room_path(room) %>
+          </div>
         </div>
-        <div class="main-room-name">
-          <%= link_to room.name, room_path(room) %>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
