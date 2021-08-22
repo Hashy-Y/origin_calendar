@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  before_create :default_image
+
   validates :name, presence: true
   validates :password, presence: true
   
@@ -51,6 +53,12 @@ class Room < ApplicationRecord
   def save_room_users
     self.user_ids.each do |user_id|
       RoomUser.create(user_id: user_id, room_id: self.id)
+    end
+  end
+
+  def default_image
+    if !self.image.attached?
+      self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'room_default.png')), filename: 'default-image.png', content_type: 'image/png')
     end
   end
 
