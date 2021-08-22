@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :applies, only: [:index, :create, :destroy]
+    resources :room_users, only: [:index, :create, :destroy]
     resources :events
   end
 end

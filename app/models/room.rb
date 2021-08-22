@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   validates :password, presence: true
   
   has_secure_password
+  has_many :applies, dependent: :destroy
   has_many :events, dependent: :destroy
   belongs_to :user
   has_one_attached :image
