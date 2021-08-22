@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "shared/side_bar" %>
+  </div>
+  <div class="main-side">
+    <div class="main-header">
+      <div class="left-header">
+        <div class="header-title">
+          みんなのルーム一覧
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button">
+          <%= form_with model: @room, url: search_rooms_path, local: true, method: :get, class: "search-form" do |form| %>
+            <%= form.text_field :keyword, placeholder: "ルームを検索する", class: "search-input" %>
+            <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="main-rooms">
+      <% @rooms.each do |room| %>
+        <div class="main-room">
+          <div class="main-room-name">
+            <%= link_to room.name, room_path(room) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

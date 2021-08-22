@@ -4,16 +4,14 @@
       みんなのルーム一覧
     </div>
   </div>
-</div>
-<div class="form">
-  <div class="form-input">
-    <input class="form-message" placeholder= "type a message">
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
+  <div class="right-header">
+    <div class="header-button">
+      <%= form_with model: @room, url: search_rooms_path, local: true, method: :get, class: "search-form" do |form| %>
+        <%= form.text_field :keyword, placeholder: "ルームを検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
   </div>
-  <input class="form-submit" type="submit" value="送信">
 </div>
 <div class="main-rooms">
   <% @rooms.each do |room| %>

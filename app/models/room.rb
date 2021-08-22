@@ -36,6 +36,14 @@ class Room < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    if search != ""
+      Room.where('name LIKE(?)', "%#{search}%")
+    else
+      Room.all
+    end
+  end
+
   private
 
   def save_room_users

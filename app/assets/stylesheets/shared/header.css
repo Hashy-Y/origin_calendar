@@ -4,8 +4,10 @@
 
 .top-page-header {
   width: 100vw;
+  height: 15vh;
   padding: 2vh 10vw;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -44,6 +46,7 @@
 
 
 .user-nickname {
+  font-size: 20px;
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
@@ -52,18 +55,20 @@
 
 
 .logout {
+  font-size: 20px;
   text-decoration: none;
   color: #333333;
 }
 
 .login {
+  font-size: 20px;
   text-decoration: none;
-  line-height: 32px;
   margin-right: 3vw;
   color: #333333;
 }
 
 .sign-up {
+  font-size: 20px;
   text-decoration: none;
   color: #333333;
 }

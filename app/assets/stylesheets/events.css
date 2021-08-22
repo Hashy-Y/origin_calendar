@@ -65,8 +65,12 @@
 .header-title {
   color: #333;
   font-size: 24px;
-  margin-top: 36px;
+  margin-top: 40px;
 }
+.header-search {
+  margin-top: 40px;
+}
+
 .header-button {
   margin-top: 40px;
 }
