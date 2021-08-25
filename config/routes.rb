@@ -6,8 +6,13 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :applies, only: [:index, :create, :destroy]
-    resources :room_users, only: [:index, :create, :destroy]
+    resources :applies, only: [:index, :create, :destroy] do
+      collection do
+        post 'allow'
+        delete 'refuse'
+      end
+    end
+    resources :room_users, only: [:index, :destroy]
     resources :events
   end
 end

@@ -20,13 +20,16 @@
   text-decoration: none;
 }
 .create-room a {
-  background-color: sandybrown;
+  background-color: chocolate;
   font-size: 15px;
-  border: 1.5px solid #fff;
+  border: 1.5px solid white;
   border-radius: 20px / 20px;
   padding: 14px;
-  color: deepskyblue#000000;
+  color: white;
   text-decoration: none;
+}
+.create-room a:hover{
+  background-color: darksalmon;
 }
 .rooms {
   background-color: palegoldenrod;
@@ -42,7 +45,7 @@
   color: rgb(0, 0, 0);
 }
 .main-rooms{
-  background-color: #FAFAFA;
+  background-color: #fff;
   height: calc(100vh - 100px);
   padding: 46px 40px 0;
   overflow: scroll;

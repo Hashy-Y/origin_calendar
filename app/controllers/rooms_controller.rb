@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
   end
 
   private
-  def room_params
+  def room_param
     params.require(:room).permit(:name, :password, :image, :description, user_ids: [] ).merge(user_id: current_user.id)
   end
 

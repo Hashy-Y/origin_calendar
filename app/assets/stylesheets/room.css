@@ -35,6 +35,7 @@ li {
 }
 .room-detail_field {
   margin-top: 30px;
+  justify-content: center;
 }
 .room-detail_field--up {
   width: 100%;
@@ -62,23 +63,40 @@ li {
   border-radius: 5px / 5px;
   display: inline-block;
 }
-.room-btn{
+.room-button{
+  margin-top: 20px;
   display: flex;
-  margin: 20px auto;
-
 }
-.room-edit-btn, .room-destroy-btn{
-  margin-right: 10px;
+.room_edit_button,
+.room_destroy_button,
+.apply_show_button{
+  margin-right: 20px;
   height: 40px;
-  width: 80px;
+  width: 100px;
   border: 1px solid darkred;
   border-radius: 5px / 5px;
-  text-decoration: none;
+  display: table;
   text-align: center;
-  text-justify: auto;
 }
-
-
+.room_edit_button:hover{
+  background-color: lightblue;
+}
+.room_destroy_button:hover{
+  background-color: coral;
+}
+.apply_show_button:hover{
+  background-color: lightgreen;
+}
+.room_edit_btn,
+.room_destroy_btn,
+.apply_show_btn{
+  text-decoration: none;
+  font-weight: normal;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: black;
+}
 .room-form {
   width: 980px;
   margin: 60px auto;
@@ -167,7 +185,7 @@ li {
 .room-lists>.list {
   width: 37vh;
   padding: 1vw;
-  background-color: #FFF;
+  background-color: white;
 }
 .main-room-img {
   position: relative;

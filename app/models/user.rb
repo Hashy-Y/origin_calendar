@@ -16,4 +16,8 @@ class User < ApplicationRecord
   has_many :owned_groups, class_name: "Group"
   has_many :applies, dependent: :destroy
   has_many :events
+
+  def already_applied?(room)
+    self.applies.exists?(room_id: room.id)
+  end
 end
