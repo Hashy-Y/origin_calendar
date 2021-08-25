@@ -1,0 +1,20 @@
+.room_users_refuse{
+  margin-top: 20px;
+  height: 40px;
+  width: 100px;
+  border: 1px solid darkred;
+  border-radius: 5px / 5px;
+  display: table;
+  text-align: center;
+}
+.room_users_refuse:hover{
+  background-color: coral;
+}
+.room_user_refuse {
+  text-decoration: none;
+  font-weight: normal;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: black;
+}

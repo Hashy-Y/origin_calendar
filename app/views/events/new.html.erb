@@ -4,28 +4,37 @@
     <%= render "shared/side_bar" %>
   </div>
   <div class="main-side">
-    <%= form_with model: [@room, @event], url: room_events_path, local: true do |f| %>
-
-      <div class="title">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+    <div class="main-header">
+      <div class="left-header">
+        <div class="header-title">
+          <%= @room.name %>
+        </div>
       </div>
-
+      <div class="right-header">
+        <div class="header-button">
+          <%= link_to '参加者一覧', room_room_users_path(@room)%>
+          <%= link_to '退出', root_path %>
+        </div>
+      </div>
+    </div>
+      <br>
+      <h1>新規予定登録</h1>
+      <%= form_with model: [@room, @event], url: room_events_path, local: true do |f| %>
+        <div class="title">
+          <%= f.label :タイトル %>
+          <%= f.text_field :title %>
+        </div>
         <div class="time">
-        <%= f.label :start_time %>
-        <%= f.datetime_select :start_time %>
-      </div>
-
-      <div class="content">
-        <%= f.label :content %>
-        <%= f.text_field :content %>
-      </div>
-
-
-      <div class="submit">
-        <%= f.submit %>
-      </div>
-
-    <% end %>
+          <%= f.label :開始時刻 %>
+          <%= f.datetime_select :start_time %>
+        </div>
+        <div class="content">
+          <%= f.label :イベント詳細 %>
+          <%= f.text_field :content %>
+        </div>
+        <div class="submit">
+          <%= f.submit %>
+        </div>
+      <% end %>
   </div>
 </div>

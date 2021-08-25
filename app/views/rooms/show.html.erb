@@ -1,0 +1,58 @@
+<%= render "shared/header" %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "shared/side_bar" %>
+  </div>
+  <div class='room-detail'>
+    <h1>ルーム詳細</h1>
+    <div class='room-detail_field'>
+      <%= image_tag @room.image, class: 'room-image' if @room.image.attached? %>
+      <div class='room-detail_field--up'>
+        <div class='room-detail__label'>
+          <%= 'Room Name'%>
+        </div>
+        <div class='room-detail__field--down'>
+          <%= @room.name %>
+        </div>
+      </div>
+      <div class='room-detail_field--up'>
+        <div class='room-detail__label'>
+          <%= 'Room Description'%>
+        </div>
+        <div class='room-detail__area'>
+          <%= @room.description %>
+        </div>
+      </div>
+      <div class='room-button'>
+        <% if user_signed_in? %> 
+          <% if current_user.id == @room.user_id %>
+            <div class='room_edit_button'>
+              <%= link_to '編集する', edit_room_path , class: "room_edit_btn" %>
+            </div>
+            <div class='room_destroy_button'>
+              <%= link_to '削除する', room_path, method: :delete, data: { confirm: 'Are you sure?' },class:"room_destroy_btn" %>
+            </div>
+            <div class='apply_show_button'>
+            <%= link_to "承認待ち一覧", room_applies_path(@room), class:"apply_show_btn" %>
+        <!-- ログインユーザが当該コミュニティに所属している場合 -->
+          <% elsif current_user.rooms.include?(@room) %>
+            <div class='room_users_refuse'>
+              <%= link_to '退会する', room_room_users_path(@room), method: :delete, class:"room_user_refuse" %>
+            </div>
+        <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
+          <% else %> 
+            <% if current_user.already_applied?(@room) %>
+            <div class='applies-refuse'>
+              <%= link_to '申請取消', room_apply_path(@room), method: :delete, class:"apply-refuse" %>
+            </div>
+            <% else %>
+              <div class='applies-allow'>
+                <%= link_to '加入申請', room_applies_path(@room), method: :post, class:"apply-allow" %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

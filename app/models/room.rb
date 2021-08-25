@@ -1,9 +1,14 @@
 class Room < ApplicationRecord
+  before_create :default_image
+
   validates :name, presence: true
-  #validates :password, presence: true
+  validates :password, presence: true
   
   has_secure_password
-  has_many :events
+  has_many :applies, dependent: :destroy, dependent: :destroy
+  has_many :events, dependent: :destroy
+  belongs_to :user
+  has_one_attached :image
 
   #has_many :room_users
   #has_many :users, through: :room_users
@@ -36,6 +41,14 @@ class Room < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    if search != ""
+      Room.where('name LIKE(?)', "%#{search}%")
+    else
+      Room.all
+    end
+  end
+
   private
 
   def save_room_users
@@ -44,5 +57,10 @@ class Room < ApplicationRecord
     end
   end
 
-
+  def default_image
+    if !self.image.attached?
+      self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'room_default.png')), filename: 'default-image.png', content_type: 'image/png')
+    end
   end
+
+end

@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     #@room = Room.find(params[:room_id])
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to room_events_path(@event.room_id), notice:"削除しました"
+    redirect_to room_events_path(@event.room_id)
   end
 
   def edit

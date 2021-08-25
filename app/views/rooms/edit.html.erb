@@ -5,7 +5,7 @@
   </div>
   <div class='room-form'>
     <h1>新規ルーム</h1>
-    <%=form_with model: @room, local: true do |f|%>
+    <%= form_with model: @room, url: room_path(@room.id), method: :patch ,local: true do |f| %>
       <div class='room-form__field'>
         <div class='room-form__field--left'>
           <%= f.label :アイコン選択, class: 'room-form__label'%>

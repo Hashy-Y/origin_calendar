@@ -35,7 +35,7 @@ Things you may want to cover:
 ## roomテーブル
 | column               | type       | options                        |
 |:--------------------:|:----------:|:------------------------------:|
-| name                 | string     | null: false                    |
+| name                 | string     | null: false, unique: true      |
 | password_digest      | string     | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
@@ -62,6 +62,16 @@ Things you may want to cover:
 | content              | text       | null: false                    |
 | start_time           | datetime   | null: false                    |
 | end_date             | datetime   | null: false                    |
+| user                 | references | null: false, foreign_key: true |
+| room                 | references | null: false, foreign_key: true |
+
+###Asociation
+- belongs_to :user
+- belongs_to :room
+
+## applyテーブル
+| column               | type       | options                        |
+|:--------------------:|:----------:|:------------------------------:|
 | user                 | references | null: false, foreign_key: true |
 | room                 | references | null: false, foreign_key: true |
 

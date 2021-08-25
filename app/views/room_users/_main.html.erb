@@ -1,0 +1,32 @@
+<div class="apply-detail">
+  <h1>ルーム参加者一覧</h1>
+  <div class='apply-detail-field' >
+    <div class="apply-lists_title">
+      <div class='apply-user-name'>
+        参加ユーザー<span>    </span>
+      </div>
+      <div class='apply-user-created'>
+        参加日
+      </div>
+      <div class='applies-refuse_title'>
+        強制退出ボタン
+      </div>
+    </div>
+  </div>
+  <div class='apply-detail-field' >
+    <ul class="applies-list">
+    <% @room_users.each do |ru| %>
+      <li class="apply-lists">
+        <div class='apply-user-name'>
+          <%= ru.user.nickname %><span>さん</span>
+        </div>
+        <div class='apply-user-created'>
+          <%= ru.user.created_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div class='applies-refuse'>
+          <%#= link_to "許可しない", refuse_room_applies_path(ru.room.id), method: :delete, class:"apply-refuse" %>
+        </div>
+      </li>
+    <% end %>
+  </div>
+</div>

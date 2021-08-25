@@ -1,0 +1,38 @@
+<div class="apply-detail">
+  <h1>あなたの承認を待っています</h1>
+  <div class='apply-detail-field' >
+    <div class="apply-lists_title">
+      <div class='apply-user-name'>
+        申請ユーザー<span>    </span>
+      </div>
+      <div class='apply-user-created'>
+        申請日
+      </div>
+      <div class='applies-allow_title'>
+        承認ボタン
+      </div>
+      <div class='applies-refuse_title'>
+        取消ボタン
+      </div>
+    </div>
+  </div>
+  <div class='apply-detail-field' >
+    <ul class="applies-list">
+    <% @applies.each do |app| %>
+      <li class="apply-lists">
+        <div class='apply-user-name'>
+          <%= app.user.nickname %><span>さん</span>
+        </div>
+        <div class='apply-user-created'>
+          <%= app.user.created_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div class='applies-allow'>
+          <%= link_to "参加を許可", allow_room_applies_path(app.room.id), method: :post, class:"apply-allow" %>
+        </div>
+        <div class='applies-refuse'>
+          <%= link_to "許可しない", refuse_room_applies_path(app.room.id), method: :delete, class:"apply-refuse" %>
+        </div>
+      </li>
+    <% end %>
+  </div>
+</div>

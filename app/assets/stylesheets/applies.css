@@ -1,0 +1,86 @@
+.apply-detail {
+  height: calc(100vh - 60px );
+  width: calc(100vw - 30vw);
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.apply-detail h1{
+  text-decoration: underline;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+.apply-detail_field {
+  width: auto;
+}
+.apply-detail_field:nth-child(odd){
+  background-color: lightgray
+}
+.apply-lists{
+  width: auto;
+  padding: 10px 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+}
+.apply-lists_title{
+  width: auto;
+  padding: 10px 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+}
+.apply-user-name{
+  width: 150px;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 18px;
+  margin: auto 20px;
+  text-align: center;
+}
+.apply-user-created,
+.applies-allow_title,
+.applies-refuse_title{
+  width: 100px;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 18px;
+  margin: auto 20px;
+  text-align: center;
+}
+.applies-allow{
+  margin: auto 20px;
+  height: 40px;
+  width: 100px;
+  border: 1px solid darkred;
+  border-radius: 5px / 5px;
+  display: table;
+}
+.applies-allow:hover{
+  background-color: lightblue;
+}
+.applies-refuse{
+  margin: auto 20px;
+  height: 40px;
+  width: 100px;
+  border: 1px solid darkred;
+  border-radius: 5px / 5px;
+  display: table;
+  text-align: center;
+}
+.applies-refuse:hover{
+  background-color: coral;
+}
+.apply-allow, .apply-refuse{
+  text-decoration: none;
+  font-weight: normal;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: black;
+}
