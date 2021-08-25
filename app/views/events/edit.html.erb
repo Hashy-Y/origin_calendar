@@ -4,28 +4,55 @@
     <%= render "shared/side_bar" %>
   </div>
   <div class="main-side">
-    <%= form_with model: @event, url: room_event_path(@event.room_id), method: :patch ,local: true do |f| %>
-
-      <div class="title">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-      </div>
-
-      <div class="time">
-        <%= f.label :start_time %>
-        <%= f.datetime_select :start_time %>
-      </div>
-
-      <div class="content">
-        <%= f.label :content %>
-        <%= f.text_field :content %>
-      </div>
-
-
-      <div class="submit">
-        <%= f.submit %>
-      </div>
-
-    <% end %>
+    <div class='event-form'>
+      <h1>予定変更</h1>
+      <%= form_with model: @event, url: room_event_path(@event.room_id), method: :patch ,local: true do |f|  %>
+        <div class='event-form__field'>
+          <div class='event-form__field--left'>
+            <%= f.label :タイトル, class: 'event-form__label'%>
+          </div>
+          <div class='event-form__field--right'>
+            <%= f.text_field :title, class: 'event-form__input', placeholder: 'タイトルを入力してください'%>
+          </div>
+        </div>
+        <div class='event-form__field'>
+          <div class='event-form__field--left'>
+            <%= f.label :開始時刻, class: 'event-form__label'%>
+          </div>
+          <div class='event-form__field--right_time'>
+            <%= f.datetime_select :start_time, class: 'event-form__input_time'%>
+          </div>
+        </div>
+        <div class='event-form__field'>
+          <div class='event-form__field--left'>
+            <%= f.label :イベント詳細, class: 'event-form__label'%>
+          </div>
+          <div class='event-form__field--right'>
+            <%= f.text_area :content, class: 'event-form__input', placeholder: 'イベントの詳細情報を入力してください'%>
+          </div>
+        </div>
+        <div class='event-form__field'>
+          <div class='event-form__field--left'></div>
+          <div class='event-form__field--right'>
+            <%= f.submit class: 'event-form__action-btn'%>
+          </div>
+        </div>
+        <!--<div class="title">
+          <%= f.label :タイトル %>
+          <%= f.text_field :title %>
+        </div>
+        <div class="time">
+          <%= f.label :開始時刻 %>
+          <%= f.datetime_select :start_time %>
+        </div>
+        <div class="content">
+          <%= f.label :イベント詳細 %>
+          <%= f.text_field :content %>
+        </div>
+        <div class="submit">
+          <%= f.submit %>
+        </div>-->
+      <% end %>
+    </div>
   </div>
 </div>
