@@ -1,17 +1,33 @@
 <div class="side-bar-header">
   <div class="header-name">
     <% if user_signed_in? %>
-      <%= link_to current_user.nickname, edit_user_registration_path %>
+      <%= link_to current_user.nickname, edit_user_registration_path, class:"user-icon" %>
     <% else %>
       <div>ゲスト</div>
     <% end%>
   </div>
   <div class="create-room">
-    <%= link_to "新ルーム", new_room_path %>
+    <%= link_to "新ルーム作成", new_room_path %>
   </div>
 </div>
-
 <div class="rooms">
+  <!--<div class='my-room-list'%>
+    - 管理するルーム一覧 -
+  </div>
+  <% if user_signed_in? %>
+    <% current_user.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+        <% if current_user.id == room.user_id %>
+          <%= link_to room.name, room_events_path(room) %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>-->
+  <div class='my-room-list'%>
+    マ イ ル ー ム 一 覧
+  </div>
   <% if user_signed_in? %>
     <% current_user.rooms.each do |room| %>
       <div class="room">
@@ -20,7 +36,5 @@
         </div>
       </div>
     <% end %>
-  <% else %>
-    <div></div>
   <% end %>
 </div>

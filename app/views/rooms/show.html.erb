@@ -6,10 +6,10 @@
   <div class='room-detail'>
     <h1>ルーム詳細</h1>
     <div class='room-detail_field'>
-      <%= image_tag @room.image, class: 'room-image' if @room.image.attached? %>
+      <%= image_tag @room.image, class: 'room-image' if @room.image.attached?  %>
       <div class='room-detail_field--up'>
         <div class='room-detail__label'>
-          <%= 'Room Name'%>
+          <%= 'ルームの名前'%>
         </div>
         <div class='room-detail__field--down'>
           <%= @room.name %>
@@ -17,7 +17,7 @@
       </div>
       <div class='room-detail_field--up'>
         <div class='room-detail__label'>
-          <%= 'Room Description'%>
+          <%= 'ルームの説明'%>
         </div>
         <div class='room-detail__area'>
           <%= @room.description %>
@@ -33,7 +33,8 @@
               <%= link_to '削除する', room_path, method: :delete, data: { confirm: 'Are you sure?' },class:"room_destroy_btn" %>
             </div>
             <div class='apply_show_button'>
-            <%= link_to "承認待ち一覧", room_applies_path(@room), class:"apply_show_btn" %>
+              <%= link_to "承認待ち一覧", room_applies_path(@room), class:"apply_show_btn" %>
+            </div>
         <!-- ログインユーザが当該コミュニティに所属している場合 -->
           <% elsif current_user.rooms.include?(@room) %>
             <div class='room_users_refuse'>
@@ -42,9 +43,9 @@
         <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
           <% else %> 
             <% if current_user.already_applied?(@room) %>
-            <div class='applies-refuse'>
-              <%= link_to '申請取消', room_apply_path(@room), method: :delete, class:"apply-refuse" %>
-            </div>
+              <div class='applies-refuse'>
+                <%= link_to '申請取消', room_apply_path(@room), method: :delete, class:"apply-refuse" %>
+              </div>
             <% else %>
               <div class='applies-allow'>
                 <%= link_to '加入申請', room_applies_path(@room), method: :post, class:"apply-allow" %>
