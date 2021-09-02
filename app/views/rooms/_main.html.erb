@@ -19,6 +19,7 @@
       <li class='list'>
         <div class="main-room">
           <div class='main-room-img'>
+            <%#=link_to image_tag room.image, room_path(room), class:"room-img" if @room.image.attached? %>
             <%= image_tag room.image, class: 'room-img' if room.image.attached? %>
           </div>
           <div class="main-room-name">

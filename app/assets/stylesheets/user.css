@@ -45,7 +45,7 @@
 .account-page .field .field-label {
   padding: 10px 0;
   letter-spacing: 1px;
-  font-size: 14px;
+  font-size: px;
   font-weight: 200;
 }
 .account-page .field .field-label i {
@@ -111,4 +111,74 @@
   margin: 0;
   padding: 0;
   font-size: 13px;
+}
+.user-registration-form {
+  width: 750px;
+  height: 80vh;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: rgb(255, 233, 200);
+  border: 1px solid olive;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.user-form {
+  width: 750px;
+  height: 50vh;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: rgb(255, 233, 200);
+  border: 1px solid olive;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.user-form__errors {
+  margin: 30px 0;
+  padding: 20px 40px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  text-align: center;
+}
+.user-form__label {
+  display: block;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: right;
+}
+.user-form__input {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  /*background-color: #fff;*/
+}
+.user-form__action-btn {
+  width: 50%;
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  background-color: rgb(0, 132, 255);
+  border: 0;
+  border: 1px solid olive;
+  border-radius: 15px;
+}
+.user-form__field {
+  margin-top: 30px;
+}
+.user-form__field:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.user-form__field--left {
+  float: left;
+  width: 30%;
+  padding-right: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.user-form__field--right {
+  float: right;
+  width: 70%;
 }

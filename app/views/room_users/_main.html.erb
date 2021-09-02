@@ -1,31 +1,51 @@
-<div class="apply-detail">
+<div class="room_user-detail">
   <h1>ルーム参加者一覧</h1>
-  <div class='apply-detail-field' >
-    <div class="apply-lists_title">
-      <div class='apply-user-name'>
-        参加ユーザー<span>    </span>
-      </div>
-      <div class='apply-user-created'>
-        参加日
-      </div>
-      <div class='applies-refuse_title'>
-        強制退出ボタン
-      </div>
-    </div>
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
+      <li class="room_user-lists">
+        <div class='room_user-name'>
+          ルーム管理者<span>    </span>
+        </div>
+        <div class='room_user-created'>
+          作成日
+        </div>
+      </li>
+    </ul>
   </div>
-  <div class='apply-detail-field' >
-    <ul class="applies-list">
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
+      <li class="room_user-lists">
+        <div class='room_user-name'>
+          <%= @room.user.nickname %><span>さん</span>
+        </div>
+        <div class='room_user-created'>
+          <%= @room.created_at.strftime('%Y/%m/%d') %>
+        </div>
+      </li>
+  </div>
+  <br>
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
+      <li class="room_user-lists">
+        <div class='room_user-name'>
+          参加ユーザー<span>    </span>
+        </div>
+        <div class='room_user-created'>
+          参加日
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
     <% @room_users.each do |ru| %>
-      <li class="apply-lists">
-        <div class='apply-user-name'>
-          <%= ru.user.nickname %><span>さん</span>
-        </div>
-        <div class='apply-user-created'>
-          <%= ru.user.created_at.strftime('%Y/%m/%d') %>
-        </div>
-        <div class='applies-refuse'>
-          <%#= link_to "許可しない", refuse_room_applies_path(ru.room.id), method: :delete, class:"apply-refuse" %>
-        </div>
+      <li class="room_user-lists">
+          <div class='room_user-name'>
+            <%= ru.user.nickname %><span>さん</span>
+          </div>
+          <div class='room_user-created'>
+            <%= ru.created_at.strftime('%Y/%m/%d') %>
+          </div>
       </li>
     <% end %>
   </div>

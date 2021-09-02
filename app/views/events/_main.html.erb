@@ -6,21 +6,20 @@
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to '参加者一覧', room_room_users_path(@room)%>
-      <%= link_to '退出', root_path %>
+      <%= link_to '新規予定登録', new_room_event_path %>
+      <%= link_to 'ルーム詳細へ', room_path(@room)%>
+      <%= link_to '参加者一覧へ', room_room_users_path(@room)%>
+      <%= link_to 'ルーム一覧へ', root_path %>
     </div>
   </div>
 </div>
 
 <div class="events">
-  <%= link_to '新規予定登録', new_room_event_path %>
-
   <%= month_calendar events: @events do |date,events| %>
     <%= date.day %>
-
     <% events.each do |event| %>
       <div>
-        <%= link_to event.title, room_event_path(@room, event) %>
+        <%= link_to event.title, room_event_path(@room, event), class:"event" %>
       </div>
     <% end %>
   <% end %>

@@ -1,25 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション名
+『みんなのカレンダーアプリ』
 
-Things you may want to cover:
+##　概要
+- コンセプト  
+仲間とカレンダーを共有できるアプリ
+あの予定表ってどこにあったっけをなくせるようにするアプリ
 
-* Ruby version
+- ターゲット  
+プライベートでカレンダーを使用するユーザーとその親しい関係のユーザー
+チームで予定等を組んで動いているユーザー
 
-* System dependencies
+- デザイン  
+直感でとりあえずダウンロードしてみようかなと思うデザインを目指す
 
-* Configuration
+## URL
+＊実装後に記載します。
 
-* Database creation
+## テスト用アカウント
+＊実装後に記載します。
 
-* Database initialization
+## 利用方法
+＊実装後に記載します。
 
-* How to run the test suite
+## 洗い出した要件
+- ユーザー
+ - ログイン
+ - サインアップ
+ - 編集
+ - SNS認証（今後実装予定）
+- グループ
+ - メンバー 参加申請/承認・非承認
+ - ルーム認証機能（今後実装予定）
+ - 検索機能
+ - スケジュール管理
+  - 予定 登録/編集/削除
+  - 予定 コメント作成
+  - Googleカレンダーとの連動（今後実装予定）
 
-* Services (job queues, cache servers, search engines, etc.)
+## 実装スケジュール
+1. ユーザー
+1. ルーム
+1. カレンダー
+1. 予定登録
+1. コメント
+1. google calendarとの連動
 
-* Deployment instructions
+## 実装した機能についての画像やGIFおよびその説明
+
+## 実装予定の機能
+
+## データベース設計
+
+## ローカルでの動作方法
 
 ## userテーブル
 | column               | type   | options                   |

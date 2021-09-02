@@ -1,11 +1,13 @@
 .room_users_refuse{
-  margin-top: 20px;
+  margin-top: auto 20px;
   height: 40px;
   width: 100px;
   border: 1px solid darkred;
   border-radius: 5px / 5px;
   display: table;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .room_users_refuse:hover{
   background-color: coral;
@@ -17,4 +19,63 @@
   vertical-align: middle;
   text-align: center;
   color: black;
+}
+.room_user-detail {
+  height: calc(100vh - 60px );
+  width: calc(100vw - 30vw);
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.room_user-detail h1{
+  text-decoration: underline;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+.room_user-detail_field {
+  width: auto;
+}
+.room_users-list {
+  width: auto;
+}
+.room_user-detail_field:nth-child(odd){
+  background-color: lightgray
+}
+.room_user-lists{
+  width: auto;
+  padding: 10px 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}
+.room_user-lists_title{
+  width: auto;
+  padding: 10px 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}
+.room_user-name{
+  width: 150px;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 18px;
+  margin: auto 20px;
+}
+.room_user-created,
+.room_users-refuse_title{
+  width: 150px;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 18px;
+  margin: auto 20px;
+  text-align: center;
 }
