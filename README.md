@@ -3,7 +3,7 @@
 ## アプリケーション名
 『みんなのカレンダーアプリ』
 
-##　概要
+## 概要
 - コンセプト  
 仲間とカレンダーを共有できるアプリ
 あの予定表ってどこにあったっけをなくせるようにするアプリ
@@ -25,12 +25,12 @@
 ＊実装後に記載します。
 
 ## 洗い出した要件
-- ユーザー
+- ユーザー管理機能
  - ログイン
  - サインアップ
  - 編集
  - SNS認証（今後実装予定）
-- グループ
+- ルーム管理機能
  - メンバー 参加申請/承認・非承認
  - ルーム認証機能（今後実装予定）
  - 検索機能
@@ -40,11 +40,11 @@
   - Googleカレンダーとの連動（今後実装予定）
 
 ## 実装スケジュール
-1. ユーザー
-1. ルーム
-1. カレンダー
-1. 予定登録
-1. コメント
+1. ユーザー管理機能の実装
+1. ルーム管理機能の実装
+1. カレンダー機能の実装
+1. 予定管理機能の実装
+1. 予定へのコメント機能の実装
 1. google calendarとの連動
 
 ## 実装した機能についての画像やGIFおよびその説明
@@ -65,6 +65,7 @@
 ###Asociation
 - has_many :rooms
 - has_many :events
+- has_many :comments
 
 ## roomテーブル
 | column               | type       | options                        |
@@ -76,6 +77,7 @@
 ###Asociation
 - has_many :user
 - has_many :events
+- has_many :comments
 
 
 ## room_userテーブル
@@ -102,6 +104,20 @@
 ###Asociation
 - belongs_to :user
 - belongs_to :room
+- has_many   :comments
+
+## commentテーブル
+| column               | type       | options                        |
+|:--------------------:|:----------:|:------------------------------:|
+| text                 | text       | null: false                    |
+| user                 | references | null: false, foreign_key: true |
+| room                 | references | null: false, foreign_key: true |
+| event                | references | null: false, foreign_key: true |
+
+###Asociation
+- belongs_to :user
+- belongs_to :room
+- belongs_to :event
 
 ## applyテーブル
 | column               | type       | options                        |
