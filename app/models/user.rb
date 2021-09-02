@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :password_confirmation
   end
 
-  has_many :room_users
+  has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users
   has_many :owned_groups, class_name: "Group"
   has_many :applies, dependent: :destroy

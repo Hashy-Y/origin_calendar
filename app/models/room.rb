@@ -5,13 +5,13 @@ class Room < ApplicationRecord
   validates :password, presence: true
   
   has_secure_password
-  has_many :applies, dependent: :destroy, dependent: :destroy
+  has_many :applies, dependent: :destroy
   has_many :events, dependent: :destroy
   belongs_to :user
   has_one_attached :image
 
-  #has_many :room_users
-  #has_many :users, through: :room_users
+  has_many :room_users, dependent: :destroy
+  has_many :users, through: :room_users
   attr_accessor :user_ids
 
   # 手動アソシエーション

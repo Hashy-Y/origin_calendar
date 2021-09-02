@@ -4,16 +4,35 @@
     <ul class="room_users-list">
       <li class="room_user-lists">
         <div class='room_user-name'>
+          ルーム管理者<span>    </span>
+        </div>
+        <div class='room_user-created'>
+          作成日
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
+      <li class="room_user-lists">
+        <div class='room_user-name'>
+          <%= @room.user.nickname %><span>さん</span>
+        </div>
+        <div class='room_user-created'>
+          <%= @room.created_at.strftime('%Y/%m/%d') %>
+        </div>
+      </li>
+  </div>
+  <br>
+  <div class='room_user-detail-field' >
+    <ul class="room_users-list">
+      <li class="room_user-lists">
+        <div class='room_user-name'>
           参加ユーザー<span>    </span>
         </div>
         <div class='room_user-created'>
           参加日
         </div>
-        <% unless current_user.id == @room.user_id %>
-          <div class='room_users-refuse_title'>
-            強制退出ボタン
-          </div>
-        <% end %>
       </li>
     </ul>
   </div>
@@ -21,17 +40,12 @@
     <ul class="room_users-list">
     <% @room_users.each do |ru| %>
       <li class="room_user-lists">
-        <div class='room_user-name'>
-          <%= ru.user.nickname %><span>さん</span>
-        </div>
-        <div class='room_user-created'>
-          <%= ru.user.created_at.strftime('%Y/%m/%d') %>
-        </div>
-        <% unless current_user.id == ru.room.user_id %>
-          <div class='room_users_refuse'>
-            <%= link_to "強制退出", room_room_user_path(ru.room_id,ru.id), method: :delete, class:"room_user_refuse" %>
+          <div class='room_user-name'>
+            <%= ru.user.nickname %><span>さん</span>
           </div>
-        <% end %>
+          <div class='room_user-created'>
+            <%= ru.created_at.strftime('%Y/%m/%d') %>
+          </div>
       </li>
     <% end %>
   </div>
