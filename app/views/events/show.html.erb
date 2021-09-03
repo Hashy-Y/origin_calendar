@@ -4,40 +4,59 @@
     <%= render "shared/side_bar" %>
   </div>
   <div class='room-detail'>
-    <h1>ルーム詳細</h1>
-    <div class='room-detail_field'>
-      <div class='room-detail_field--up'>
-        <div class='room-detail__label'>
-          <%= 'タイトル'%>
+    <div class='room-detail_left'>
+      <h1>予定詳細</h1>
+      <div class='room-detail_field'>
+        <div class='room-detail_field--up'>
+          <div class='room-detail__label'>
+            <%= 'タイトル'%>
+          </div>
+          <div class='room-detail__field--down'>
+            <%= @event.title %>
+          </div>
         </div>
-        <div class='room-detail__field--down'>
-          <%= @event.title %>
+        <div class='room-detail_field--up'>
+          <div class='room-detail__label'>
+            <%= '開始時刻'%>
+          </div>
+          <div class='room-detail__field--down'>
+            <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
+          </div>
+        </div>
+        <div class='room-detail_field--up'>
+          <div class='room-detail__label'>
+            <%= 'イベント内容'%>
+          </div>
+          <div class='room-detail__area'>
+            <%= @event.content %>
+          </div>
+        </div>
+        <div class='room-button'>
+          <div class='room_edit_button'>
+            <%= link_to '編集する', edit_room_event_path(@event.room_id), class: "room_edit_btn" %>
+          </div>
+          <div class='room_destroy_button'>
+            <%= link_to '削除する',room_event_path(@event.room_id), method: :delete, data: { confirm: 'Are you sure?' },class:"room_destroy_btn" %>
+          </div>
+          <div class='apply_show_button'>
+            <%= link_to 'カレンダーへ', room_events_path(), class:"apply_show_btn" %>
+          </div>
         </div>
       </div>
-      <div class='room-detail_field--up'>
-        <div class='room-detail__label'>
-          <%= '開始時刻'%>
-        </div>
-        <div class='room-detail__field--down'>
-          <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
-        </div>
+    </div>
+    <div class='room-detail_right'>
+      <h1>コメント</h1>
+      <div class='room-detail_field'>
+        <%= form_with model: [@event, @comment], url: room_event_comments_path(event_id: @event.id), local: true do |f| %>
+          <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+          <%= f.submit "コメント送信" %>
+        <% end %>
       </div>
-      <div class='room-detail_field--up'>
-        <div class='room-detail__label'>
-          <%= 'イベント内容'%>
-        </div>
-        <div class='room-detail__area'>
-          <%= @event.content %>
-        </div>
+      <div id='comments'>
+        <% @comments.reverse_each do |comment| %>
+          <p><%= comment.text %></p>
+        <% end %>
       </div>
-      <div class='room-button'>
-        <div class='room_edit_button'>
-          <%= link_to '編集する', edit_room_event_path(@event.room_id), class: "room_edit_btn" %>
-        </div>
-        <div class='room_destroy_button'>
-          <%= link_to '削除する',room_event_path(@event.room_id), method: :delete, data: { confirm: 'Are you sure?' },class:"room_destroy_btn" %>
-        </div>
-        <div class='apply_show_button'>
-        <%= link_to 'カレンダーへ', room_events_path, class:"apply_show_btn" %>
-      </div>
+    </div>
+  </div>
 </div>
