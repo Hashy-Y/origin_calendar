@@ -10,7 +10,10 @@ class CommentsController < ApplicationController
     @room = Room.find(params[:room_id])
     @event = Event.find(params[:event_id])
     @comment = Comment.new(comment_params)
-    @comment.save
+    #@comment.save
+    if @comment.save
+      ActionCable.server.broadcast 'comment_channel', content: @comment
+    end
     redirect_to room_event_path(@room, @event)
   end
 
