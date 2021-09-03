@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index, only: [:edit, :destroy, :update]
+  before_action :set_event, only: [:show, :destroy, :update]
 
   def index
     @room = Room.find(params[:room_id])
@@ -13,7 +14,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @comment = Comment.new
+    @comments = @event.comments.includes(:user)
   end
 
   def create
@@ -28,19 +30,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to room_events_path(@event.room_id)
   end
 
   def edit
     @room = Room.find(params[:room_id])
-    @event = Event.find(params[:id])
   end
 
   def update
     @room = Room.find(params[:room_id])
-    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to room_events_path(@room)
     else
@@ -59,6 +58,10 @@ class EventsController < ApplicationController
     unless current_user.id == @room.user_id
       redirect_to root_path
     end
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
 end

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       end
     end
     resources :room_users, only: [:index, :destroy]
-    resources :events
+    resources :events do
+      resources :comments, only: [:create, :update, :destroy]
+    end
   end
 end
